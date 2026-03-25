@@ -18,28 +18,8 @@ public:
 		return Length;
 	}
 
-	MyString operator+ (const MyString& Other)
-	{
-		int NewLength = Length + Other.GetLength();
-		char* NewData = new char[NewLength];
-		for (size_t i = 0; i < Length; ++i)
-		{
-			NewData[i] = Data[i];
-		}
-		for (size_t i = 0; i < NewLength; ++i)
-		{
-			NewData[i + Length] = Other.Data[i];
-		}
+	MyString operator+ (const MyString& Other) const;
 
-		return MyString(NewData, NewLength);
-	}
-
-	void Print()
-	{
-		for (int i = 0; i < Length; ++i)
-		{
-			std::cout << Data[i];
-		}
-	}
+	void Print() const;
 };
 
