@@ -89,6 +89,30 @@ char MyString::operator[](const int Index) const
 	return Data[Index];
 }
 
+MyString& MyString::operator+=(const MyString& Other)
+{
+	int NewLength = Length + Other.Length;
+	char* NewData = new char[NewLength + 1];
+
+	/*std::memcpy(NewData, Data, Length);
+	std::memcpy(NewData + Length, Other.Data, Other.Length);*/
+	for (size_t i = 0; i < Length; ++i)
+	{
+		NewData[i] = Data[i];
+	}
+	for (size_t i = 0; i < Other.Length; ++i)
+	{
+		NewData[i + Length] = Other.Data[i];
+	}
+	NewData[NewLength] = '\0';
+
+	delete[] Data;
+	Data = NewData;
+	Length = NewLength;
+
+	return *this;
+}
+
 void MyString::Print() const
 {
 	for (int i = 0; i < Length; ++i)

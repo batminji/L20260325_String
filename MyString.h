@@ -30,6 +30,7 @@ public:
 	MyString operator+ (const MyString& Other) const;
 	MyString operator= (const MyString& Other);
 	char operator[](const int Index) const;
+	MyString& operator+=(const MyString& Other);
 
 	void Print() const;
 };

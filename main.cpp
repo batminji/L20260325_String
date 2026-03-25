@@ -15,5 +15,8 @@ int main()
 	}
 	std::cout << std::endl;
 
+	str1 += str1;
+	str1.Print();
+
 	return 0;
 }
