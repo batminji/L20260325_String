@@ -16,11 +16,7 @@ MyString::MyString(char C)
 
 MyString::MyString(const char* C)
 {
-	Length = 0;
-	while (C[Length] != '\0')
-	{
-		Length++;
-	}
+	Length = GetLength(C);
 	Data = new char[Length];
 	for (int i = 0; i < Length; ++i)
 	{
