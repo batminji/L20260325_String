@@ -9,7 +9,8 @@ public:
 public:
 	MyString();
 	MyString(const char C);
-	MyString(const char* C, const size_t Size);
+	MyString(const char* C);
+	MyString(const MyString& Other);
 	~MyString();
 
 	inline size_t GetLength() const
@@ -18,6 +19,7 @@ public:
 	}
 
 	MyString operator+ (const MyString& Other) const;
+	MyString& operator= (const MyString& Other);
 
 	void Print() const;
 };

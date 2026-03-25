@@ -2,8 +2,8 @@
 
 int main()
 {
-	MyString str1("Hello ", 6);
-	MyString str2("World", 5);
+	MyString str1("Hello ");
+	MyString str2("World");
 	MyString str3 = str1 + str2;
 
 	str3.Print();

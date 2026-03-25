@@ -14,13 +14,27 @@ MyString::MyString(char C)
 	Length = 1;
 }
 
-MyString::MyString(const char* C, const size_t Size)
+MyString::MyString(const char* C)
 {
-	Data = new char[Size];
-	Length = Size;
+	Length = 0;
+	while (C[Length] != '\0')
+	{
+		Length++;
+	}
+	Data = new char[Length];
 	for (int i = 0; i < Length; ++i)
 	{
 		Data[i] = C[i];
+	}
+}
+
+MyString::MyString(const MyString& Other)
+{
+	Length = Other.GetLength();
+	Data = new char[Length];
+	for (int i = 0; i < Length; ++i)
+	{
+		Data[i] = Other.Data[i];
 	}
 }
 
@@ -46,7 +60,29 @@ MyString MyString::operator+ (const MyString& Other) const
 		NewData[i + Length] = Other.Data[i];
 	}
 
-	return MyString(NewData, NewLength);
+	MyString Result(NewData);
+	delete[] NewData;
+	NewData = nullptr;
+
+	return Result;
+}
+
+MyString& MyString::operator=(const MyString& Other)
+{
+	if (this == &Other)
+	{
+		return *this;
+	}
+
+	delete[] Data;
+	Length = Other.GetLength();
+	Data = new char[Length];
+	for (int i = 0; i < Length; ++i)
+	{
+		Data[i] = Other.Data[i];
+	}
+
+	return *this;
 }
 
 void MyString::Print() const
