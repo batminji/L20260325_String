@@ -30,7 +30,7 @@ MyString::MyString(const char* C)
 
 MyString::MyString(const MyString& Other)
 {
-	Length = Other.GetLength();
+	Length = Other.Length;
 	Data = new char[Length];
 	for (int i = 0; i < Length; ++i)
 	{
@@ -49,13 +49,13 @@ MyString::~MyString()
 
 MyString MyString::operator+ (const MyString& Other) const
 {
-	int NewLength = Length + Other.GetLength();
+	int NewLength = Length + Other.Length;
 	char* NewData = new char[NewLength + 1];
 	for (size_t i = 0; i < Length; ++i)
 	{
 		NewData[i] = Data[i];
 	}
-	for (size_t i = 0; i < Other.GetLength(); ++i)
+	for (size_t i = 0; i < Other.Length; ++i)
 	{
 		NewData[i + Length] = Other.Data[i];
 	}
@@ -74,7 +74,7 @@ MyString MyString::operator=(const MyString& Other)
 	{
 		delete[] Data;
 	}
-	Length = Other.GetLength();
+	Length = Other.Length;
 	Data = new char[Length];
 	for (int i = 0; i < Length; ++i)
 	{
