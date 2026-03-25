@@ -41,7 +41,7 @@ MyString MyString::operator+ (const MyString& Other) const
 	{
 		NewData[i] = Data[i];
 	}
-	for (size_t i = 0; i < NewLength; ++i)
+	for (size_t i = 0; i < Other.GetLength(); ++i)
 	{
 		NewData[i + Length] = Other.Data[i];
 	}
