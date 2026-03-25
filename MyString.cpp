@@ -68,14 +68,12 @@ MyString MyString::operator+ (const MyString& Other) const
 	return Result;
 }
 
-MyString& MyString::operator=(const MyString& Other)
+MyString MyString::operator=(const MyString& Other)
 {
-	if (this == &Other)
+	if (Data)
 	{
-		return *this;
+		delete[] Data;
 	}
-
-	delete[] Data;
 	Length = Other.GetLength();
 	Data = new char[Length];
 	for (int i = 0; i < Length; ++i)

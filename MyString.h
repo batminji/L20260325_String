@@ -19,7 +19,7 @@ public:
 	}
 
 	MyString operator+ (const MyString& Other) const;
-	MyString& operator= (const MyString& Other);
+	MyString operator= (const MyString& Other);
 
 	void Print() const;
 };
