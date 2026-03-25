@@ -84,10 +84,20 @@ MyString MyString::operator=(const MyString& Other)
 	return *this;
 }
 
+char MyString::operator[](const int Index) const
+{
+	if (Index < 0 || Index >= Length)
+	{
+		throw std::out_of_range("인덱스가 범위를 벗어남");
+	}
+	return Data[Index];
+}
+
 void MyString::Print() const
 {
 	for (int i = 0; i < Length; ++i)
 	{
 		std::cout << Data[i];
 	}
+	std::cout << std::endl;
 }

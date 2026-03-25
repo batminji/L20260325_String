@@ -2,7 +2,7 @@
 
 class MyString
 {
-public:
+private:
 	char* Data;
 	size_t Length;
 
@@ -20,6 +20,7 @@ public:
 
 	MyString operator+ (const MyString& Other) const;
 	MyString operator= (const MyString& Other);
+	char operator[](const int Index) const;
 
 	void Print() const;
 };
