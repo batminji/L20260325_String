@@ -50,7 +50,7 @@ MyString::~MyString()
 MyString MyString::operator+ (const MyString& Other) const
 {
 	int NewLength = Length + Other.GetLength();
-	char* NewData = new char[NewLength];
+	char* NewData = new char[NewLength + 1];
 	for (size_t i = 0; i < Length; ++i)
 	{
 		NewData[i] = Data[i];
@@ -59,6 +59,7 @@ MyString MyString::operator+ (const MyString& Other) const
 	{
 		NewData[i + Length] = Other.Data[i];
 	}
+	NewData[NewLength] = '\0';
 
 	MyString Result(NewData);
 	delete[] NewData;
